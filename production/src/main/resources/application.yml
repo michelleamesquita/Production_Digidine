@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: admin
+    password: admin
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  rabbitmq:
+    host: localhost
+#    port: 5672
+#    username: admin
+#    password: admin
+#
+broker:
+  exchange:
+    orderNotificationExchange: digidine.order.notification
+    productionNotificationExchange: digidine.production.notification
+  key:
+    orderNotificationKey: ms.order.notification
+    productionNotificationKey: ms.production.notification
+    order:
+      queue: digidine.order.notification.queue
+    production:
+    queue: digidine.production.notification.queue
