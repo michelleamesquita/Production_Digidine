@@ -1,12 +1,8 @@
 package com.digidine.production.infrastructure.gateway.mapper;
 
 import com.digidine.production.domain.entities.Order;
-import com.digidine.production.domain.entities.Product;
+import com.digidine.production.infrastructure.controller.dto.OrderDTO;
 import com.digidine.production.infrastructure.controller.dto.OrderRequest;
-import com.digidine.production.infrastructure.controller.dto.ProductRequestDTO;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class OrderMapper {
 
@@ -22,6 +18,16 @@ public class OrderMapper {
                 productMapper.toRequests(order.getProducts()),
                 order.getOrderStatus().toString(),
                 order.getCreatedAt()
+        );
+    }
+
+    public OrderRequest toRequest(OrderDTO orderDTO)
+    {
+        return new OrderRequest(
+                orderDTO.orderNumber(),
+                orderDTO.products(),
+                orderDTO.orderStatus(),
+                orderDTO.createdAt()
         );
     }
 }

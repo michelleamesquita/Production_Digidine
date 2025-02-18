@@ -5,5 +5,6 @@ import com.digidine.production.domain.entities.enums.ProductCategory;
 public record ProductRequestDTO(
         Long productNumber,
         String name,
+        Double price,
         ProductCategory category
 ) {}

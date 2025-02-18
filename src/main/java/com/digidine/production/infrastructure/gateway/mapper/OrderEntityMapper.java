@@ -1,6 +1,8 @@
 package com.digidine.production.infrastructure.gateway.mapper;
 
 import com.digidine.production.domain.entities.Order;
+import com.digidine.production.infrastructure.controller.dto.OrderDTO;
+import com.digidine.production.infrastructure.controller.dto.OrderResponse;
 import com.digidine.production.infrastructure.persistence.entitie.OrderEntity;
 
 import java.util.ArrayList;
@@ -41,5 +43,9 @@ public class OrderEntityMapper {
             orders.add(order);
         }
         return orders;
+    }
+
+    public OrderResponse toResponse(OrderEntity orderEntity) {
+        return new OrderResponse(orderEntity.getOrderNumber(), orderEntity.getOrderStatus().toString());
     }
 }

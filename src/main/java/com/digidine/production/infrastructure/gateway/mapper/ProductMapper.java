@@ -15,6 +15,7 @@ public class ProductMapper {
             ProductRequestDTO productRequestDTO = new ProductRequestDTO(
                     product.getProductNumber(),
                     product.getName(),
+                    product.getPrice(),
                     product.getCategory()
             );
             productRequestDTOList.add(productRequestDTO);

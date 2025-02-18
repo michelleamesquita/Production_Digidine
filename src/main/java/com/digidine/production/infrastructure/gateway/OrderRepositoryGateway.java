@@ -37,7 +37,7 @@ public class OrderRepositoryGateway implements OrderGateway {
         repository.save(orderEntity);
 
         try {
-            orderUpdateProducer.sendOrderUpdate(mapper.toDomain(orderEntity));
+            orderUpdateProducer.sendOrderUpdate(mapper.toResponse(orderEntity));
         }catch (Exception e) {
             log.warn("Error sending notification!");
         }
@@ -59,7 +59,7 @@ public class OrderRepositoryGateway implements OrderGateway {
         repository.save(orderEntity);
 
         try {
-            orderUpdateProducer.sendOrderUpdate(mapper.toDomain(orderEntity));
+            orderUpdateProducer.sendOrderUpdate(mapper.toResponse(orderEntity));
         }catch (Exception e) {
             log.warn("Error sending notification!");
         }

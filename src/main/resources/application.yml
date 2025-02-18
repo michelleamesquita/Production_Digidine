@@ -11,7 +11,6 @@ spring:
 
 rabbitmq:
   host: localhost
-  # Caso precise, defina também porta, usuário e senha:
   # port: 5672
   # username: myuser
   # password: secret
@@ -19,8 +18,10 @@ rabbitmq:
 digidine:
   broker:
     exchange:
-      productionNotificationExchange: digidine.order-production.notification
+      productionNotificationExchange: digidine.order-production.notification  # para consumo interno (ProductionListener)
+      orderUpdateExchange: digidine.order-update.notification                # para notificar o Order
     key:
-      productionNotificationKey: ms.order-production.notification
+      productionNotificationKey: ms.order-production.notification             # para consumo interno
+      orderUpdateKey: ms.order-update.notification                            # para notificar o Order
     queue:
       production: digidine.production.notification.queue
