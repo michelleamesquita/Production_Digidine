@@ -23,7 +23,7 @@ jobs:
       run: java -version
 
     - name: Build the project
-      run: cd production && mvn clean install
+      run:  mvn clean install
       # run: mvn clean install -DskipTests
 
     - name: SonarCloud
